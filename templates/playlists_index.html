@@ -4,7 +4,55 @@
 {% block content %}
     <h1>Playlists</h1>
     {% for playlist in playlists %}
-        <h2>{{ playlist.title }}</h2>
-        <small>{{ playlist.description }}</small>
+        <h2 id="villa_title">{{ playlist.villa_name }} <span class="badge bg-danger" id="location_badge">{{ playlist.location}} <span class="badge bg-secondary"> {{ playlist.max_guests}}</span></span></h2>
+        <small>{{ playlist.basic_info}}</small>
+        <small>{{ playlist.bedrooms}}</small>
+        <span class="badge bg-info text-dark">{{ playlist.rent_range}}</span>
+
+        <p>{{ playlist.basic_facts}}</p>
+
+
+        <a href="{{ playlist.link}}">Link</a>
+        <a href="">test</a>
+
+        <p>{{ playlist.facilities}}</p>
+
+
+       
+        
+
     {% endfor %}
+
+    <script>
+
+        var container = document.querySelectorAll("[id='villa_title']")
+        
+
+        for(var i = 0; i < container.length; i++) {
+    
+
+            if (container[i].textContent.includes('Ubud')) {
+            console.log('✅ Ubud is contained in element'); container[i].style.background = "blue";
+            } else {
+            console.log('⛔️ Ubud is NOT contained in element');
+            }
+
+            if (container[i].textContent.includes('Canggu')) {
+            container[i].style.background = "green";
+            }
+
+            if (container[i].textContent.includes('Seminyak ')) {
+            container[i].style.background = "black"; container[i].style.color = "white";
+            }
+    
+    
+        }     
+
+        
+        </script>
+           
+
+
+
+    
 {% endblock %}
