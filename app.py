@@ -6,7 +6,7 @@ app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 app.config["MONGO_URI"] = "mongodb+srv://dubliner73:test123@cluster0.klq8d.mongodb.net/Idealista?retryWrites=true&w=majority"
 mongo = PyMongo(app)
-playlists = list(mongo.db.scrapy_items.find({}).sort("rent_range"))
+playlists = list(mongo.db.scrapy_items.find({}).sort("_id"))
 
 
 
@@ -24,7 +24,7 @@ playlists = list(mongo.db.scrapy_items.find({}).sort("rent_range"))
 @app.route('/')
 def playlists_index():
     """Show all playlists."""
-    return render_template('playlists_index.html', playlists=playlists)    
+    return render_template('index.html', playlists=playlists)    
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+   
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    {{ bootstrap.load_css() }}
+    <section class="section">
+        <div class="container">
+            {% for playlist in playlists%}
+         
+               <div class="notification is-danger" id="card">
+                    <span STYLE="font-weight:bold" STYLE="font-size:18px">{{playlist.villa_name}}</span><br>
+                    <img src="{{playlist.images[0]}}" alt="">
+                   
+                    <p>{{playlist.location}}</p>
+                    <p>{{playlist.bedrooms}}</p>
+                    <p id="rent">{{playlist.min_rent}}</p>
+                    <a href="{{playlist.link}}">Link</a>
+                    
+
+               </div>
+                  
+                    
+                
+              
+           
+               
+            {% endfor %}
+        </div>
+
+        <script>
+
+            var container = document.querySelectorAll("[id='card']")
+           
+            
+    
+            for(var i = 0; i < container.length; i++) {
+
+                var a = document.getElementById("rent").value;
+                a = parseInt(a);
+                
+                if (a > 2000) {
+                    console.log('✅ 2000 is contained in element'); rent[i].style.color = "red";
+                    } else {
+                    console.log('⛔️ 2000 is NOT contained in element');
+                    }
+        
+    
+                if (container[i].textContent.includes('Ubud')) {
+                console.log('✅ Ubud is contained in element'); container[i].style.background = "grey";
+                } else {
+                console.log('⛔️ Ubud is NOT contained in element');
+                }
+    
+                if (container[i].textContent.includes('Canggu')) {
+                container[i].style.background = "green";
+                }
+    
+                if (container[i].textContent.includes('Bukit')) {
+                container[i].style.background = "red"; container[i].style.animation = "blinker 3s linear infinite"
+                }
+
+                if (container[i].textContent.includes('Canggu')) {
+                container[i].style.background = "green";
+                }
+        
+              
+                
+            }     
+
+       
+    
+            
+            </script>
+               
+    </section>
+</body>
+
+</html>

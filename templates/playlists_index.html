@@ -4,7 +4,8 @@
 {% block content %}
     <h1>Playlists</h1>
     {% for playlist in playlists %}
-        <h2 id="villa_title">{{ playlist.villa_name }} <span class="badge bg-danger" id="location_badge">{{ playlist.location}} <span class="badge bg-secondary"> {{ playlist.max_guests}}</span></span></h2>
+    <div class="container">
+    <h2 id="villa_title">{{ playlist.villa_name }} <span class="badge bg-danger" id="location_badge">{{ playlist.location}} <span class="badge bg-secondary"> {{ playlist.max_guests}}</span></span></h2>
         <small>{{ playlist.basic_info}}</small>
         <small>{{ playlist.bedrooms}}</small>
         <span class="badge bg-info text-dark">{{ playlist.rent_range}}</span>
@@ -16,6 +17,7 @@
         <a href="">test</a>
 
         <p>{{ playlist.facilities}}</p>
+    </div>      
 
 
        
@@ -42,7 +44,7 @@
             }
 
             if (container[i].textContent.includes('Seminyak ')) {
-            container[i].style.background = "black"; container[i].style.color = "white";
+            container[i].style.background = "black"; container[i].style.color = "white"; container[i].style.animation = "white";
             }
     
     
